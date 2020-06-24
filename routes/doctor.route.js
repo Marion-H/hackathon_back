@@ -3,12 +3,14 @@ const express = require("express");
 const doctor = express.Router();
 
 const Doctor = require("../sequelize/models/doctor.model");
+const Patient = require("../sequelize/models/patient.model")
+
 const regExpIntegrityCheck = require("../middlewares/regexCheck");
 const { uuidv4RegExp } = require("../middlewares/regexCheck");
 
 doctor.get("/", async (req, res) => {
   try {
-    const doctors = await Doctor.findAll();
+    const doctors = await Doctor.findAll({include : [{model : Patient, as: "patients"}]});
     res.status(200).json(doctors);
   } catch (err) {
     res.status(422).json({

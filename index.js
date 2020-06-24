@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 
 const sequelize = require("./sequelize/sequelize");
+require('./sequelize/association')
 
 const app = express();
 
@@ -9,11 +10,13 @@ const PORT = process.env.PORT || 8000;
 
 const patients = require('./routes/patient.route')
 const doctors = require('./routes/doctor.route')
+const dailyDatas = require('./routes/dailyData.route')
 
 app.use(express.json())
 
 app.use('/patients', patients)
 app.use('/doctors', doctors)
+app.use('/dailyDatas', dailyDatas)
 
 app.get('/', (req, res) => {
     res.status(200).send("Here is our API!")
@@ -21,7 +24,7 @@ app.get('/', (req, res) => {
 
 async function main(){
     try{
-        await sequelize.sync({ater: true});
+        await sequelize.sync();
         await sequelize.authenticate();
         console.log("Database succesfully joined")
         app.listen(PORT, (err) => {

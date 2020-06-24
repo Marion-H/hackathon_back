@@ -11,11 +11,11 @@ const DailyData = sequelizeInstance.define(
       defaultValue: Sequelize.UUIDV4,
     },
     bloodSugar: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT,
       allowNull: false,
     },
     weight: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT,
       allowNull: false,
     },
     mood: {
