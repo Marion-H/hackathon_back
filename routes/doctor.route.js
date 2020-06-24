@@ -35,18 +35,18 @@ doctor.post("/", async (req, res) => {
   }
 });
 
-// doctor.get("/:uuid", async (req, res) => {
-//   const uuid = req.params.uuid;
-//   try {
-//     const doctors = await Doctor.findOne({ where: { uuid } });
-//     res.status(200).json(doctors);
-//   } catch (err) {
-//     res.status(422).json({
-//       status: "error",
-//       message: "invalid request",
-//     });
-//   }
-// });
+doctor.get("/:uuid", async (req, res) => {
+  const uuid = req.params.uuid;
+  try {
+    const doctors = await Doctor.findOne({ where: { uuid } });
+    res.status(200).json(doctors);
+  } catch (err) {
+    res.status(422).json({
+      status: "error",
+      message: "invalid request",
+    });
+  }
+});
 
 // doctor.put("/:uuid", async (req, res) => {
 //   const uuid = req.params.uuid;
