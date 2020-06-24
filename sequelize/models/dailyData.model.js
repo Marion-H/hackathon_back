@@ -12,19 +12,19 @@ const DailyData = sequelizeInstance.define(
     },
     bloodSugar: {
       type: Sequelize.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
     weight: {
       type: Sequelize.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
     mood: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     appetite: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {}

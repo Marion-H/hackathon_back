@@ -20,19 +20,19 @@ const Patient = sequelizeInstance.define(
     },
     score: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     birthday: {
       type: Sequelize.DATEONLY,
-      allowNull: false,
+      allowNull: true,
     },
     gender: {
       type: Sequelize.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
     },
     weight: {
       type: Sequelize.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {}

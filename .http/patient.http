@@ -8,7 +8,7 @@ Content-Type: application/json
     "lastname":"toto",
     "firstname":"tata",
     "birthday":"1980/05/29",
-    "DoctorUuid": "82e457e3-f730-43a7-aa25-9168855e0dc7"
+    "DoctorUuid": "no doctor for the moment"
 }
 
 ###
