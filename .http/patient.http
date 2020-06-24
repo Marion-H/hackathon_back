@@ -5,7 +5,23 @@ POST http://localhost:8080/patients
 Content-Type: application/json
 
 {
-    "lastname":"valjean",
-    "firstname":"Jean",
+    "lastname":"toto",
+    "firstname":"tata",
     "birthday":"1980/05/29"
 }
+
+###
+
+GET http://localhost:8080/patients/99358767-0273-4ba1-9fa3-ae82be2315ce
+
+
+####
+PUT http://localhost:8080/patients/99358767-0273-4ba1-9fa3-ae82be2315ce
+Content-Type: application/json
+
+{
+    "lastname": "Hello"
+}
+
+###
+PUT http://localhost:8080/patients/99358767-0273-4ba1-9fa3-ae82be2315ce/click

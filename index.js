@@ -8,9 +8,12 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 const patients = require('./routes/patient.route')
+const doctors = require('./routes/doctor.route')
+
 app.use(express.json())
 
 app.use('/patients', patients)
+app.use('/doctors', doctors)
 
 app.get('/', (req, res) => {
     res.status(200).send("Here is our API!")
