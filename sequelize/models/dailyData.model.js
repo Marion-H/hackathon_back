@@ -1,33 +1,33 @@
 const Sequelize = require("sequelize");
 const sequelizeInstance = require("../sequelize");
 
-const Medecin = sequelizeInstance.define(
-  "Medecin",
+const DailyData = sequelizeInstance.define(
+  "DailyData",
   {
-    id: {
+    uuid: {
       type: Sequelize.UUID,
       allowNull: false,
       primaryKey: true,
       defaultValue: Sequelize.UUIDV4,
     },
-    firstname: {
-      type: Sequelize.STRING(128),
+    bloodSugar: {
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
-    lastname: {
-      type: Sequelize.STRING(128),
+    weight: {
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
-    city: {
-      type: Sequelize.STRING(128),
+    mood: {
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
-    adress: {
-      type: Sequelize.STRING(128),
+    appetite: {
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
   },
   {}
 );
 
-module.exports = Medecin;
+module.exports = DailyData;
