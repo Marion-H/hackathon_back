@@ -1,0 +1,28 @@
+GET http://localhost:8080/dailyDatas
+
+###
+POST http://localhost:8080/dailyDatas
+Content-Type: application/json
+
+{
+    "bloodSugar": 1.2,
+    "weight": 50.1,
+    "mood": 5,
+    "appetite":5,
+    "PatientUuid": "df81d9bd-39f1-4ddc-ad39-200c445fb93e"
+}
+
+###
+GET http://localhost:8080/dailyDatas/499198e0-5eec-477f-ae20-bd9cf3643686
+
+###
+
+PUT http://localhost:8080/dailyDatas/499198e0-5eec-477f-ae20-bd9cf3643686
+Content-Type: application/json
+
+{
+    "bloodSugar": 1.2,
+    "weight": 60,
+    "mood": 5,
+    "appetite":5
+}
