@@ -1,4 +1,4 @@
-get http://localhost:8080/doctors
+GET http://localhost:8080/doctors
 
 
 ###
@@ -15,3 +15,15 @@ Content-Type: application/json
 
 ####
 GET http://localhost:8080/doctors/93dfdbe1-487f-489f-bb6a-f758840e9004
+
+###
+ 
+PUT http://localhost:8080/doctors/93dfdbe1-487f-489f-bb6a-f758840e9004
+Content-Type: application/json
+
+{
+    "lastname":"Richard",
+    "firstname": "Olivier",
+    "city":"Biarritz",
+    "adress": "3 rue de la fontaine"
+}

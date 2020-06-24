@@ -48,25 +48,27 @@ doctor.get("/:uuid", async (req, res) => {
   }
 });
 
-// doctor.put("/:uuid", async (req, res) => {
-//   const uuid = req.params.uuid;
-//   const { lastname, firstname, birthday } = req.body;
-//   try {
-//     await Doctor.update(
-//       {
-//         lastname,
-//         firstname,
-//         birthday,
-//       },
-//       { where: { uuid } }
-//     );
-//     res.status(201).end();
-//   } catch (err) {
-//     res.status(422).json({
-//       status: "error",
-//       message: "invalid request",
-//     });
-//   }
-// });
+doctor.put("/:uuid", async (req, res) => {
+  const uuid = req.params.uuid;
+  const { lastname, firstname, city, adress } = req.body;
+  console.log(req.body)
+  try {
+    await Doctor.update(
+      {
+        lastname,
+        firstname,
+        city,
+        adress,
+      },
+      { where: { uuid } }
+    );
+    res.status(201).end();
+  } catch (err) {
+    res.status(422).json({
+      status: "error",
+      message: "invalid request",
+    });
+  }
+});
 
 module.exports = doctor;
