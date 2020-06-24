@@ -2,7 +2,6 @@ const express = require("express");
 
 const doctor = express.Router();
 
-
 const Doctor = require("../sequelize/models/doctor.model");
 
 doctor.get("/", async (req, res) => {
@@ -17,24 +16,24 @@ doctor.get("/", async (req, res) => {
   }
 });
 
-// doctor.post("/", async (req, res) => {
-//   const { lastname, firstname, birthday } = req.body;
-//   try {
-//     const score = 0;
-//     const doctors = await Doctor.create({
-//       lastname,
-//       firstname,
-//       birthday,
-//       score,
-//     });
-//     res.status(201).json(doctors);
-//   } catch (err) {
-//     res.status(422).json({
-//       status: "error",
-//       message: "invalid request",
-//     });
-//   }
-// });
+doctor.post("/", async (req, res) => {
+  const { lastname, firstname, city, adress } = req.body;
+  try {
+    const score = 0;
+    const doctors = await Doctor.create({
+      lastname,
+      firstname,
+      city,
+      adress,
+    });
+    res.status(201).json(doctors);
+  } catch (err) {
+    res.status(422).json({
+      status: "error",
+      message: "invalid request",
+    });
+  }
+});
 
 // doctor.get("/:uuid", async (req, res) => {
 //   const uuid = req.params.uuid;
@@ -69,7 +68,5 @@ doctor.get("/", async (req, res) => {
 //     });
 //   }
 // });
-
-
 
 module.exports = doctor;
