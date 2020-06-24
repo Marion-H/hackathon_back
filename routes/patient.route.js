@@ -35,5 +35,17 @@ patient.post("/", async (req, res) => {
   }
 });
 
+patient.get("/:uuid", async (req,res) => {
+    const uuid = req.params.uuid
+    try {
+        const patients = await Patient.findOne({where : {uuid}})
+        res.status(200).json(patients)
+    } catch (err) {
+        res.status(422).json({
+            status: "error",
+            message: "invalid request",
+          });
+    }
+})
 
 module.exports = patient;
