@@ -7,7 +7,7 @@ post http://localhost:8080/doctors
 Content-Type: application/json
 
 {
-    "firstname": "Jean",
+    "firstname": "Jean2",
     "lastname":"David",
     "adress": "3 rue de la fontaine",
     "city":"Biarritz"
@@ -18,7 +18,7 @@ GET http://localhost:8080/doctors/93dfdbe1-487f-489f-bb6a-f758840e9004
 
 ###
  
-PUT http://localhost:8080/doctors/93dfdbe1-487f-489f-bb6a-f758840e9004
+PUT http://localhost:8080/doctors/93dfdbe1-487f-489f-bb6a-f758840e
 Content-Type: application/json
 
 {

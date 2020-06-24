@@ -12,11 +12,11 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/patients/99358767-0273-4ba1-9fa3-ae82be2315ce
+GET http://localhost:8080/patients/ce0fa979-f9d4-43fc-b846-565f8df68db2
 
 
 ####
-PUT http://localhost:8080/patients/99358767-0273-4ba1-9fa3-ae82be2315ce
+PUT http://localhost:8080/patients/ce0fa979-f9d4-43fc-b846-565f8df68db2
 Content-Type: application/json
 
 {
@@ -24,4 +24,4 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/patients/99358767-0273-4ba1-9fa3-ae82be2315ce/click
+PUT http://localhost:8080/patients/ce0fa979-f9d4-43fc-b846-565f8df68db2/click

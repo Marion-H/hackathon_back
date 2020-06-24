@@ -4,6 +4,8 @@ const patient = express.Router();
 const sequelize = require("sequelize");
 
 const Patient = require("../sequelize/models/patient.model");
+const regExpIntegrityCheck = require("../middlewares/regexCheck");
+const { uuidv4RegExp } = require("../middlewares/regexCheck");
 
 patient.get("/", async (req, res) => {
   try {
@@ -36,7 +38,7 @@ patient.post("/", async (req, res) => {
   }
 });
 
-patient.get("/:uuid", async (req, res) => {
+patient.get("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
   const uuid = req.params.uuid;
   try {
     const patients = await Patient.findOne({ where: { uuid } });
@@ -49,7 +51,7 @@ patient.get("/:uuid", async (req, res) => {
   }
 });
 
-patient.put("/:uuid", async (req, res) => {
+patient.put("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
   const uuid = req.params.uuid;
   const { lastname, firstname, birthday } = req.body;
   try {
@@ -70,12 +72,15 @@ patient.put("/:uuid", async (req, res) => {
   }
 });
 
-patient.put("/:uuid/click", async (req, res) => {
+patient.put("/:uuid/click",regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
   const uuid = req.params.uuid;
   try {
-    await Patient.update({
-      score: sequelize.literal("score+1"),
-    },{where: {uuid}});
+    await Patient.update(
+      {
+        score: sequelize.literal("score+1"),
+      },
+      { where: { uuid } }
+    );
     res.status(201).end();
   } catch (err) {
     res.status(422).json(err);

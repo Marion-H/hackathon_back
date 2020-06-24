@@ -3,6 +3,8 @@ const express = require("express");
 const doctor = express.Router();
 
 const Doctor = require("../sequelize/models/doctor.model");
+const regExpIntegrityCheck = require("../middlewares/regexCheck");
+const { uuidv4RegExp } = require("../middlewares/regexCheck");
 
 doctor.get("/", async (req, res) => {
   try {
@@ -35,7 +37,7 @@ doctor.post("/", async (req, res) => {
   }
 });
 
-doctor.get("/:uuid", async (req, res) => {
+doctor.get("/:uuid", regExpIntegrityCheck(uuidv4RegExp),async (req, res) => {
   const uuid = req.params.uuid;
   try {
     const doctors = await Doctor.findOne({ where: { uuid } });
@@ -48,10 +50,9 @@ doctor.get("/:uuid", async (req, res) => {
   }
 });
 
-doctor.put("/:uuid", async (req, res) => {
+doctor.put("/:uuid",regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
   const uuid = req.params.uuid;
   const { lastname, firstname, city, adress } = req.body;
-  console.log(req.body)
   try {
     await Doctor.update(
       {
