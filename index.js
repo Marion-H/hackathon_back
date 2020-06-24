@@ -5,6 +5,7 @@ const sequelize = require("./sequelize/sequelize");
 require('./sequelize/association')
 
 const app = express();
+const cors = require("cors");
 
 const PORT = process.env.PORT || 8000;
 
@@ -13,6 +14,8 @@ const doctors = require('./routes/doctor.route')
 const dailyDatas = require('./routes/dailyData.route')
 
 app.use(express.json())
+
+app.use(cors());
 
 app.use('/patients', patients)
 app.use('/doctors', doctors)
