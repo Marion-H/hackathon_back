@@ -4,7 +4,7 @@ const sequelizeInstance = require("../sequelize");
 const Doctor = sequelizeInstance.define(
   "Doctor",
   {
-    uudi: {
+    uuid: {
       type: Sequelize.UUID,
       allowNull: false,
       primaryKey: true,
