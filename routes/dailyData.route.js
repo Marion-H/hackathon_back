@@ -41,4 +41,17 @@ dailyData.post("/", async (req, res) => {
   }
 });
 
+dailyData.get("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
+    const uuid = req.params.uuid;
+    try {
+      const dailyDatas = await DailyData.findOne({include: [{ model: Patient }]}, { where: { uuid } } );
+      res.status(200).json(dailyDatas);
+    } catch (err) {
+      res.status(422).json({
+        status: "error",
+        message: "invalid request",
+      });
+    }
+  });
+
 module.exports = dailyData;
