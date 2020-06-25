@@ -1,27 +1,24 @@
-GET http://localhost:8080/patients
+GET http://localhost:8000/patients
 
 ###
-POST http://localhost:8080/patients
+POST http://localhost:8000/patients
 Content-Type: application/json
 
 {
     "lastname":"toto",
     "firstname":"tata",
-    "birthday":"1980/05/29",
-    "DoctorUuid": "no doctor for the moment"
-}
-
+    "birthday":"1980/05/29"}
 ###
 
-GET http://localhost:8080/patients/ce0fa979-f9d4-43fc-b846-565f8df68db2
+GET http://localhost:8000/patients/ce0fa979-f9d4-43fc-b846-565f8df68db2
 
 
 ####
-PUT http://localhost:8080/patients/ce0fa979-f9d4-43fc-b846-565f8df68db2
+PUT http://localhost:8000/patients/42ae3c80-9361-4b80-879c-02a78fb808bb
 Content-Type: application/json
 
 {
-    "lastname": "Hello"
+    "pathology": "Diabete"
 }
 
 ###

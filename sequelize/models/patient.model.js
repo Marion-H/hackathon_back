@@ -34,6 +34,10 @@ const Patient = sequelizeInstance.define(
       type: Sequelize.FLOAT,
       allowNull: true,
     },
+    pathology: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
   },
   {}
 );
