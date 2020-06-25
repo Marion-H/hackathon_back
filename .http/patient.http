@@ -5,16 +5,20 @@ POST http://localhost:8000/patients
 Content-Type: application/json
 
 {
-    "lastname":"toto",
-    "firstname":"tata",
-    "birthday":"1980/05/29"}
+    "lastname":"xxx",
+    "firstname":"tentation"
+    }
 ###
 
-GET http://localhost:8000/patients/ce0fa979-f9d4-43fc-b846-565f8df68db2
+GET http://localhost:8000/patients/01cf139d-0673-4da5-9c3c-a4d9368f4170
+
+###
+
+GET http://localhost:8000/patients/01cf139d-0673-4da5-9c3c-a4d9368f4170/data
 
 
 ####
-PUT http://localhost:8000/patients/42ae3c80-9361-4b80-879c-02a78fb808bb
+PUT http://localhost:8000/patients/0eb0880e-4536-40d7-b75d-de33e91d00e0
 Content-Type: application/json
 
 {

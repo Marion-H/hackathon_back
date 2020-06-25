@@ -5,11 +5,11 @@ POST http://localhost:8000/dailyDatas
 Content-Type: application/json
 
 {
-    "bloodSugar": 1.2,
-    "weight": 50.1,
-    "mood": 5,
-    "appetite":5,
-    "PatientUuid": "e658a38a-97ec-49a3-adfd-84250e2b8b0b"
+    "bloodSugar": 1.5,
+    "weight": 63.7,
+    "mood": 2,
+    "appetite":1,
+    "PatientUuid": "202daa14-e464-464b-b6d5-12d637d5ccb2"
 }
 
 ### 

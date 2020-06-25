@@ -3,7 +3,7 @@ GET http://localhost:8080/doctors
 
 ###
 
-post http://localhost:8080/doctors
+post http://localhost:8000/doctors
 Content-Type: application/json
 
 {

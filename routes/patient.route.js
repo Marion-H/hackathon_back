@@ -21,6 +21,21 @@ patient.get("/", async (req, res) => {
   }
 });
 
+patient.get("/alldata", async (req, res) => {
+  try {
+    const patients = await Patient.findAll({
+      include: [{ model: Doctor }],
+      include: [{ model: DailyData, as: "dailyDatas" }],
+    });
+    res.status(200).json(patients);
+  } catch (err) {
+    res.status(422).json({
+      status: "error",
+      message: "invalid request",
+    });
+  }
+});
+
 patient.post("/", async (req, res) => {
   const {
     lastname,
@@ -38,10 +53,10 @@ patient.post("/", async (req, res) => {
       firstname,
       birthday,
       score,
-      DoctorUuid,
       gender,
       weight,
       pathology,
+      DoctorUuid,
     });
     res.status(201).json(patients);
   } catch (err) {
@@ -49,11 +64,26 @@ patient.post("/", async (req, res) => {
   }
 });
 
+patient.get("/:uuid/data", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
+  const uuid = req.params.uuid;
+  try {
+    const patients = await Patient.findOne(
+      { where: { uuid } },
+      { include: [{ model: DailyData, as: "dailyDatas" }] }
+    );
+    res.status(200).json(patients);
+  } catch (err) {
+    res.status(422).json({
+      status: "error",
+      message: "invalid request",
+    });
+  }
+});
+
 patient.get("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
   const uuid = req.params.uuid;
   try {
     const patients = await Patient.findOne(
-      { include: [{ model: DailyData, as: "dailyDatas" }] },
       { where: { uuid } }
     );
     res.status(200).json(patients);
