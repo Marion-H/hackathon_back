@@ -27,7 +27,7 @@ const Patient = sequelizeInstance.define(
       allowNull: true,
     },
     gender: {
-      type: Sequelize.BOOLEAN,
+      type: Sequelize.STRING,
       allowNull: true,
     },
     weight: {
