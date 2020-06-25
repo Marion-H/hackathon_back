@@ -7,7 +7,7 @@ require('./sequelize/association')
 const app = express();
 const cors = require("cors");
 
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
 const patients = require('./routes/patient.route')
 const doctors = require('./routes/doctor.route')
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 async function main(){
     try{
-        await sequelize.sync({force: true});
+        await sequelize.sync();
         await sequelize.authenticate();
         console.log("Database succesfully joined")
         app.listen(PORT, (err) => {

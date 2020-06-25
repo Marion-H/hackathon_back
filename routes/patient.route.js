@@ -29,6 +29,7 @@ patient.post("/", async (req, res) => {
     DoctorUuid,
     gender,
     weight,
+    pathology,
   } = req.body;
   try {
     const score = 0;
@@ -40,6 +41,7 @@ patient.post("/", async (req, res) => {
       DoctorUuid,
       gender,
       weight,
+      pathology,
     });
     res.status(201).json(patients);
   } catch (err) {
@@ -65,7 +67,7 @@ patient.get("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
 
 patient.put("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
   const uuid = req.params.uuid;
-  const { lastname, firstname, birthday, gender, weight } = req.body;
+  const { lastname, firstname, birthday, gender, weight ,pathology} = req.body;
   try {
     await Patient.update(
       {
@@ -74,15 +76,13 @@ patient.put("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
         birthday,
         gender,
         weight,
+        pathology,
       },
       { where: { uuid } }
     );
     res.status(201).end();
   } catch (err) {
-    res.status(422).json({
-      status: "error",
-      message: "invalid request",
-    });
+    res.status(422).json(err);
   }
 });
 
