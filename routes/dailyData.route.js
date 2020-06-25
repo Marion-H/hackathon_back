@@ -34,10 +34,7 @@ dailyData.post("/", async (req, res) => {
     });
     res.status(201).json(dailyDatas);
   } catch (err) {
-    res.status(422).json({
-      status: "error",
-      message: "invalid request",
-    });
+    res.status(422).json(err);
   }
 });
 
@@ -61,19 +58,19 @@ dailyData.get(
   }
 );
 
-dailyData.put("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
+dailyData.put(
+  "/:uuid",
+  regExpIntegrityCheck(uuidv4RegExp),
+  async (req, res) => {
     const uuid = req.params.uuid;
-    const { bloodSugar,
-        weight,
-        mood,
-        appetite, } = req.body;
+    const { bloodSugar, weight, mood, appetite } = req.body;
     try {
       await DailyData.update(
         {
-            bloodSugar,
-            weight,
-            mood,
-            appetite,
+          bloodSugar,
+          weight,
+          mood,
+          appetite,
         },
         { where: { uuid } }
       );
@@ -84,7 +81,7 @@ dailyData.put("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => 
         message: "invalid request",
       });
     }
-  });
-
+  }
+);
 
 module.exports = dailyData;

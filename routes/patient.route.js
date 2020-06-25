@@ -7,6 +7,7 @@ const Patient = require("../sequelize/models/patient.model");
 const Doctor = require("../sequelize/models/doctor.model");
 const regExpIntegrityCheck = require("../middlewares/regexCheck");
 const { uuidv4RegExp } = require("../middlewares/regexCheck");
+const DailyData = require("../sequelize/models/dailyData.model");
 
 patient.get("/", async (req, res) => {
   try {
@@ -49,7 +50,10 @@ patient.post("/", async (req, res) => {
 patient.get("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
   const uuid = req.params.uuid;
   try {
-    const patients = await Patient.findOne({ where: { uuid } });
+    const patients = await Patient.findOne(
+      { include: [{ model: DailyData, as: "dailyDatas" }] },
+      { where: { uuid } }
+    );
     res.status(200).json(patients);
   } catch (err) {
     res.status(422).json({

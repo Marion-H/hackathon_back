@@ -1,14 +1,12 @@
 GET http://localhost:8080/patients
 
 ###
-POST http://localhost:8080/patients
+POST http://localhost:8000/patients
 Content-Type: application/json
 
 {
     "lastname":"toto",
-    "firstname":"tata",
-    "birthday":"1980/05/29",
-    "DoctorUuid": "no doctor for the moment"
+    "firstname":"tata"
 }
 
 ###

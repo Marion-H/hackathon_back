@@ -1,7 +1,7 @@
-GET http://localhost:8080/dailyDatas
+GET http://localhost:8000/dailyDatas
 
 ###
-POST http://localhost:8080/dailyDatas
+POST http://localhost:8000/dailyDatas
 Content-Type: application/json
 
 {
@@ -9,20 +9,17 @@ Content-Type: application/json
     "weight": 50.1,
     "mood": 5,
     "appetite":5,
-    "PatientUuid": "df81d9bd-39f1-4ddc-ad39-200c445fb93e"
+    "PatientUuid": "e658a38a-97ec-49a3-adfd-84250e2b8b0b"
 }
 
-###
-GET http://localhost:8080/dailyDatas/499198e0-5eec-477f-ae20-bd9cf3643686
+### 
+GET http://localhost:8000/dailyDatas/2b32c018-e8b7-4fdc-89bf-803388aaf996
 
 ###
 
-PUT http://localhost:8080/dailyDatas/499198e0-5eec-477f-ae20-bd9cf3643686
+PUT http://localhost:8000/dailyDatas/499198e0-5eec-477f-ae20-bd9cf3643686
 Content-Type: application/json
 
 {
-    "bloodSugar": 1.2,
-    "weight": 60,
-    "mood": 5,
-    "appetite":5
+    "bloodSugar": 1.2
 }
