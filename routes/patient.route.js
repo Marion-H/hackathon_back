@@ -67,7 +67,15 @@ patient.get("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
 
 patient.put("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
   const uuid = req.params.uuid;
-  const { lastname, firstname, birthday, gender, weight ,pathology} = req.body;
+  const {
+    lastname,
+    firstname,
+    birthday,
+    gender,
+    weight,
+    pathology,
+    DoctorUuid,
+  } = req.body;
   try {
     await Patient.update(
       {
@@ -77,6 +85,7 @@ patient.put("/:uuid", regExpIntegrityCheck(uuidv4RegExp), async (req, res) => {
         gender,
         weight,
         pathology,
+        DoctorUuid,
       },
       { where: { uuid } }
     );
