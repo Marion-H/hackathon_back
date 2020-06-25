@@ -7,7 +7,7 @@ require('./sequelize/association')
 const app = express();
 const cors = require("cors");
 
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
 const patients = require('./routes/patient.route')
 const doctors = require('./routes/doctor.route')
